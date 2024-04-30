@@ -7,7 +7,7 @@ nav {
   height: 110px;
 }
 
-nav > a {
+.nav--items > a {
   text-decoration: none;
 }
 
@@ -17,12 +17,13 @@ nav > a {
   color: #000000;
 }
 
-.nav--about {
+.nav--item {
   font-size: 1.75rem;
   font-weight: bold;
   color: #666666;
+  padding-left: 10px;
 }
 
-.nav--about:hover {
+.nav--item:hover {
   text-decoration: underline;
 }

@@ -2,7 +2,7 @@
   --bdr-standard: 6px;
 }
 #root {
-  max-width: 1000px;
+  width: 1000px;
   margin: 0px auto;
 }
 

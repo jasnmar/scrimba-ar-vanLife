@@ -6,7 +6,10 @@ function Nav() {
     <>
       <nav>
         <Link className="nav--home" to="/">#VANLIFE</Link>
-        <Link className="nav--about" to="/about">About</Link>
+        <div className="nav--items">
+          <Link className="nav--item" to="/about">About</Link>
+          <Link className="nav--item" to="/vans">Vans</Link>
+        </div>
       </nav>
     </>
   )
