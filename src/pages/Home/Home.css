@@ -1,5 +1,5 @@
 .home {
-  background-image: url('./assets/home-background.png');
+  background-image: url('../../assets/home-background.png');
   height: 386px;
 }
 .home--main {
