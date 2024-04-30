@@ -1,0 +1,32 @@
+
+
+.about--hero-img {
+width: 100vw;
+
+}
+
+.about--main {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.about-main h1 {
+  font-size: 2.5rem;
+}
+
+.about--action {
+  background-color: #FFCC8D;
+  padding: 30px;
+  border-radius: var(--bdr-standard);
+}
+
+.about--action-btn {
+  background-color: #161616;
+  color: white;
+  height: 50px;
+  border: none;
+  border-radius: var(--bdr-standard);
+  padding: 10px 20px;
+  font-weight: bold;
+}

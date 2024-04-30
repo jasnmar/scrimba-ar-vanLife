@@ -1,0 +1,28 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px; 
+  align-items: center;
+  background-color: #FFF7ED;
+  height: 110px;
+}
+
+nav > a {
+  text-decoration: none;
+}
+
+.nav--home {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+.nav--about {
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #666666;
+}
+
+.nav--about:hover {
+  text-decoration: underline;
+}
