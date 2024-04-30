@@ -1,8 +1,14 @@
 :root {
   --bdr-standard: 6px;
 }
-
+#root {
+  max-width: 1000px;
+  margin: 0px auto;
+}
 
 body {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
