@@ -1,0 +1,32 @@
+.badge--label {
+  text-transform: capitalize;
+  margin: 0;
+  font-weight: 600;
+}
+
+.badge--box {
+  padding: 10px 20px;
+  background-color: #FFEAD0;
+  color: #4D4D4D;
+  border-radius: var(--bdr-standard);
+  justify-self: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+}
+
+.badge--simple {
+  background-color: #E17654;
+  color: #FFEAD0;
+}
+
+.badge--rugged {
+  background-color: #115E59;
+  color: #FFEAD0;
+}
+
+.badge--luxury {
+  background-color: #161616;
+  color: #FFEAD0;
+}

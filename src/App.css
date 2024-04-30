@@ -2,13 +2,13 @@
   --bdr-standard: 6px;
 }
 #root {
-  width: 1000px;
-  margin: 0px auto;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
 body {
   font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
+

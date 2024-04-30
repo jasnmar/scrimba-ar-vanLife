@@ -1,0 +1,39 @@
+.van--card {
+  display: flex;
+  flex-direction: column;
+}
+
+.van--card-image {
+  width: 229px;
+  border-radius: var(--bdr-standard);
+}
+
+.van--card-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.van--card-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.van--card-label h1 {
+  font-size: 1.125rem;
+}
+
+.van--card-price {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.van--card-price p,
+.van--card-price h1 {
+  margin: 0px;
+}
+
+.van--card-price p {
+  font-size: .875rem;
+}
