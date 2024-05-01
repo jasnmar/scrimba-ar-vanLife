@@ -27,3 +27,9 @@
 .nav--item:hover {
   text-decoration: underline;
 }
+
+.activeLink {
+  font-weight: bold;  
+  text-decoration: underline;
+  color: #161616;
+}

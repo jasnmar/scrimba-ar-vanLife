@@ -20,3 +20,9 @@
   text-decoration: underline;
   color: #161616;
 }
+
+.activeLink {
+  font-weight: bold;  
+  text-decoration: underline;
+  color: #161616;
+}
