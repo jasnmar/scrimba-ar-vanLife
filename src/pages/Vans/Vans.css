@@ -11,17 +11,5 @@
   align-items: center;
 }
 
-.vans--filter-bar {
-  display: flex;
-  margin-bottom: 30px;
-  gap: 30px;
-}
 
-.vans--filter-btn {
-  border: none;
-  background-color: transparent;
-  text-decoration: underline;
-  font-family: inherit;
-  color: #4D4D4D;
-  font-weight: 600;
-}
+

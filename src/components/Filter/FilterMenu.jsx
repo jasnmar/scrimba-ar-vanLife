@@ -12,6 +12,7 @@ function FilterMenu() {
   return (
     <>
       {badgeList}
+      <button onClick={fState.resetFilterState} className="filter--filter-btn">Clear Filters</button>
     </>
   )
 }
