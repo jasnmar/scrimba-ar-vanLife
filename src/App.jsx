@@ -3,20 +3,24 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Vans from "./pages/Vans/Vans";
-import Nav from "./components/Nav/Nav";
 
 import "./server"
 import VanDetail from "./pages/VanDetail/VanDetail";
-
+  /**
+   * Challenge: set up the code so we can use a layout route!
+   * 
+   * 1. Create a folder called "components"
+   * 2. Create 2 new component files: Layout.jsx and Header.jsx
+   * 3. Move the <header> code below to the Header component file. 
+   *    (DON'T import that Header component here!)
+   */
 
 function App() {
 
   return (
     <>
       <BrowserRouter>
-      <header>
-        <Nav />
-      </header>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
