@@ -6,6 +6,7 @@ import Vans from "./pages/Vans/Vans";
 import Nav from "./components/Nav/Nav";
 
 import "./server"
+import VanDetail from "./pages/VanDetail/VanDetail";
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/vans" element={<Vans />} />
+          <Route path="/vans/:id" element={<VanDetail />} />
         </Routes>
       </BrowserRouter>
     </>

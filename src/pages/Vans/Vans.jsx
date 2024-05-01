@@ -1,23 +1,9 @@
 import "./Vans.css"
-import { useState, useEffect, createContext } from "react"
+import { useState, useEffect } from "react"
 import Van from "../../components/Van/Van"
-import Badge from "../../components/Badge/Badge"
 import Filter from "../../components/Filter/Filter"
 import FilterContext from "../../components/Filter/FilterContext"
 
-/**
- * Challenge: Fetch and map over the data to display it on
- * the vans page. For an extra challenge, spend time styling
- * it to look like the Figma design.
- * 
- * Hints:
- * 1. Use `fetch("/api/vans")` to kick off the request to get the
- *    data from our fake Mirage JS server
- * 2. What React hook would you use to fetch data as soon as the
- *    Vans page loads, and only fetch it the one time?
- * 3. You may get an error saying "console.groupCollapsed is not
- *    a function". You can ignore it for now.
- */
 const initialState = [
   {filterName: "simple", state:false},
   {filterName: "luxury", state:false},
@@ -50,7 +36,6 @@ function Vans() {
     })
   }
   const values =  {filterState, toggleFilterState, resetFilterState}
-
 
   useEffect(() => {
     const fetchData = async () => { 

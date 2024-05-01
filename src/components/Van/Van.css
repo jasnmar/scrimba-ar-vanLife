@@ -1,6 +1,12 @@
 .van--card {
   display: flex;
   flex-direction: column;
+
+}
+
+.van--card a {
+  color: #161616;
+  text-decoration: none;
 }
 
 .van--card-image {
