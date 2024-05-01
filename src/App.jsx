@@ -11,21 +11,22 @@ import Dashboard from "./pages/Host/Dashboard/Dashboard";
 import Reviews from "./pages/Host/Reviews/Reviews";
 import Income from "./pages/Host/Income/Income";
 import HostLayout from "./components/HostLayout/HostLayout";
+import HostVans from "./pages/Host/Vans/HostVans";
+import HostVanDetails from "./pages/Host/Vans/HostVanDetails/HostVanDetails";
 
 function App() {
-
-      /**
-   * Challenge: Make the HostLayout component!
-   * The HostLayout should use Links to navigate to the following
-   * routes: 
-   *    * Dashboard ("/host")
-   *    * Income ("/host/income")
-   *    * Reviews ("/host/reviews")
-   * Then replace the parent "/host" route's element below with the
-   * new HostLayout component you made.
+  /**
+   * Challenge: add the /host/vans and /host/vans/:id routes, as well
+   * as the "Vans" link in the Host navbar.
    * 
-   * NOTE: The dashboard route/page will be gone for now, but don't fret.
-   * We'll be fixing that in the next lesson.
+   * For now, just create the stubbed-out version of the pages (i.e.
+   * components that just render an <h1>). Don't worry about adding
+   * navigation from /host/vans to /host/vans/:id yet - the link to
+   * /host/vans is enough for now.
+   * 
+   * When deciding whether or not to use nested routes, keep in mind
+   * what will/won't be shared between these two pages. See the Figma
+   * design file (or the screenshots) to help guide your choice.
    */
   return (
     <>
@@ -39,6 +40,8 @@ function App() {
             <Route path="host" element={<HostLayout />}>
               <Route index element={<Dashboard />}/>
               <Route path="reviews" element={<Reviews />} />
+              <Route path="vans" element={<HostVans />} />
+              <Route path="vans/:id" element={<HostVanDetails />} />
               <Route path="income" element={<Income />} />
             </Route>
           </Route>
