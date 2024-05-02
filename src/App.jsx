@@ -13,21 +13,11 @@ import Income from "./pages/Host/Income/Income";
 import HostLayout from "./components/HostLayout/HostLayout";
 import HostVans from "./pages/Host/Vans/HostVans";
 import HostVanDetails from "./pages/Host/Vans/HostVanDetails/HostVanDetails";
+import HostVanLayout from "./components/HostVanLayout/HostVanLayout";
+import HostVansPricing from "./pages/Host/Vans/HostVansPricing/HostVansPricing";
+import HostVansPhotos from "./pages/Host/Vans/HostVansPhotos/HostVansPhotos";
 
 function App() {
-  /**
-   * Challenge: add the /host/vans and /host/vans/:id routes, as well
-   * as the "Vans" link in the Host navbar.
-   * 
-   * For now, just create the stubbed-out version of the pages (i.e.
-   * components that just render an <h1>). Don't worry about adding
-   * navigation from /host/vans to /host/vans/:id yet - the link to
-   * /host/vans is enough for now.
-   * 
-   * When deciding whether or not to use nested routes, keep in mind
-   * what will/won't be shared between these two pages. See the Figma
-   * design file (or the screenshots) to help guide your choice.
-   */
   return (
     <>
       <BrowserRouter>
@@ -41,7 +31,11 @@ function App() {
               <Route index element={<Dashboard />}/>
               <Route path="reviews" element={<Reviews />} />
               <Route path="vans" element={<HostVans />} />
-              <Route path="vans/:id" element={<HostVanDetails />} />
+              <Route path="vans/:id" element={<HostVanLayout />}>
+                <Route index element={<HostVanDetails />} />
+                <Route path="pricing" element={<HostVansPricing />} />
+                <Route path="photos" element={<HostVansPhotos />} />
+              </Route>
               <Route path="income" element={<Income />} />
             </Route>
           </Route>

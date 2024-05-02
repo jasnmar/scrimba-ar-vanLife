@@ -98,6 +98,5 @@ createServer({
       const id = request.params.id;
       return schema.vans.where({ id, hostId: "123" });
     });
-    console.log(this)
   },
 });
