@@ -1,0 +1,32 @@
+
+.hostvans--title {
+  margin-left: 20px
+}
+.hostvans--minicard {
+  display: flex;
+  padding: 20px;
+  border-radius: var(--bdr-standard);
+  margin: 10px 20px;
+  background-color: white;
+}
+
+.hostvans--minicard p {
+  text-decoration: none;
+  color: inherit;
+}
+.hostvans--van-text{
+  padding-left: 20px;
+  text-decoration: none;
+}
+
+.hostvans--name {
+  margin-bottom: 0px;
+}
+.hostvans--price {
+  margin-top: .5em;
+}
+.hostvans--van-image {
+  width: 66px;
+  height: 66px;
+  border-radius: var(--bdr-standard);
+} 

@@ -11,7 +11,7 @@ const initialState = [
 ];
 
 async function getData() {
-  const res = await fetch("api/vans");
+  const res = await fetch("/api/vans");
   const data = await res.json();
   return await data.vans;
 }
@@ -23,6 +23,14 @@ function Vans() {
   function resetFilterState() {
     setFilterState(initialState);
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const vansData = await getData();
+      setVans(vansData);
+    };
+    fetchData();
+  }, []);
 
   function toggleFilterState(filter) {
     setFilterState((prevFilterState) => {
@@ -38,13 +46,7 @@ function Vans() {
   }
   const values = { filterState, toggleFilterState, resetFilterState };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const vansData = await getData();
-      setVans(vansData);
-    };
-    fetchData();
-  }, []);
+
 
   useEffect(() => {
     let nFilteredVans;
