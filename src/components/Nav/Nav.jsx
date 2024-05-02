@@ -7,9 +7,9 @@ function Nav() {
       <nav className="nav--main">
         <NavLink className="nav--home" to="/">#VANLIFE</NavLink>
         <div className="nav--items">
-          <NavLink className={({isActive})=> isActive ? "activeLink nav--item" : "nav--item"} to="/host">Host</NavLink>
-          <NavLink className={({isActive})=> isActive ? "activeLink nav--item" : "nav--item"} to="/about">About</NavLink>
-          <NavLink className={({isActive})=> isActive ? "activeLink nav--item" : "nav--item"} to="/vans">Vans</NavLink>
+          <NavLink className={({isActive})=> isActive ? "activeLink nav--item" : "nav--item"} to="host">Host</NavLink>
+          <NavLink className={({isActive})=> isActive ? "activeLink nav--item" : "nav--item"} to="about">About</NavLink>
+          <NavLink className={({isActive})=> isActive ? "activeLink nav--item" : "nav--item"} to="vans">Vans</NavLink>
         </div>
       </nav>
     </>
