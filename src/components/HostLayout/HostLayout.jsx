@@ -6,10 +6,10 @@ function HostLayout() {
     <>
       <nav className="host--nav-main">
           <div className="host--nav-items">
-            <NavLink end className={({isActive})=> isActive ? "activeLink" : "host--nav-item"} to="/host">Dashboard</NavLink>
-            <NavLink className={({isActive})=> isActive ? "activeLink" : "host--nav-item"} to="/host/income">Income</NavLink>
-            <NavLink className={({isActive})=> isActive ? "activeLink" : "host--nav-item"} to="/host/vans">Vans</NavLink>            
-            <NavLink className={({isActive})=> isActive ? "activeLink" : "host--nav-item"} to="/host/reviews">Reviews</NavLink>
+            <NavLink end className={({isActive})=> isActive ? "activeLink" : "host--nav-item"} to="">Dashboard</NavLink>
+            <NavLink className={({isActive})=> isActive ? "activeLink" : "host--nav-item"} to="income">Income</NavLink>
+            <NavLink className={({isActive})=> isActive ? "activeLink" : "host--nav-item"} to="vans">Vans</NavLink>            
+            <NavLink className={({isActive})=> isActive ? "activeLink" : "host--nav-item"} to="reviews">Reviews</NavLink>
           </div>
       </nav>
       <Outlet />
