@@ -1,9 +1,12 @@
+import { useOutletContext } from "react-router-dom"
 import "./HostVansPhotos.css"
 
 function HostVansPhotos() {
+  const [ van ] = useOutletContext()
+
   return (
     <>
-      <h1>Host Vans Photos</h1>
+      <img className="hostvanphotos--image" src={van.imageUrl}></img>
     </>
   )
 }

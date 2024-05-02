@@ -28,7 +28,7 @@ function VanDetail() {
     return (
       <div className="vandetail--main">
         <div className="vandetail--link">
-          <Link to="\vans"> &larr; Back to all vans</Link>
+          <Link to=".." relative="path"> &larr; Back to all vans</Link>
         </div>
         <img className="vandetail--van-image" src={vanData.imageUrl}></img>
         <div className="vandetail--bottom-text">

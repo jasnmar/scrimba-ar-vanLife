@@ -8,11 +8,13 @@
   border-radius: var(--bdr-standard);
 }
 
-
-.hostvanlayout--card {
+.hostvanlayout--page {
   background-color: white;
   border-radius: var(--bdr-standard);
   margin: 10px;
+}
+.hostvanlayout--card {
+
   display: flex;
   ;
 }

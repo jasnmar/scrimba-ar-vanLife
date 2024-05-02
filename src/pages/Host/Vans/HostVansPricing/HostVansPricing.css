@@ -1,0 +1,16 @@
+
+.hostvanspricing--main {
+  padding: 10px;
+}
+
+.hostvanspricing--price {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+.hostvanspricing--day {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
