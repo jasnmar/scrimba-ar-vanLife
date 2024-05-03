@@ -22,6 +22,7 @@ import HostVansPricing from "./pages/Host/Vans/HostVansPricing/HostVansPricing";
 import HostVansPhotos from "./pages/Host/Vans/HostVansPhotos/HostVansPhotos";
 import NotFound from "./pages/NotFound/NotFound";
 import Login from "./pages/Login/Login";
+import HostAuth from "./components/HostAuth/HostAuth";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route path="vans" loader={vansLoader}  element={<Vans />} />
       <Route path="vans/:id" element={<VanDetail />} />
       <Route path="login" element={<Login />} />
+      <Route element={<HostAuth />}>
       <Route path="host" element={<HostLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="reviews" element={<Reviews />} />
@@ -41,6 +43,7 @@ const router = createBrowserRouter(
           <Route path="photos" element={<HostVansPhotos />} />
         </Route>
         <Route path="income" element={<Income />} />
+      </Route>
       </Route>
       <Route path="*" element={<NotFound />} />
     </Route>
