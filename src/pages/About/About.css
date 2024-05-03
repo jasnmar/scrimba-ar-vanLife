@@ -21,10 +21,5 @@ width: 100%;
 
 .about--action-btn {
   background-color: #161616;
-  color: white;
-  height: 50px;
-  border: none;
-  border-radius: var(--bdr-standard);
-  padding: 10px 20px;
-  font-weight: bold;
+  padding: 10px 20px
 }

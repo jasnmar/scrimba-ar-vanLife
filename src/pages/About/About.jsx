@@ -21,7 +21,7 @@ function About() {
             Your destination is waiting.<br></br>
             Your van is ready.
           </h2>
-          <button className="about--action-btn">Explore our vans</button>
+          <button className="about--action-btn btn">Explore our vans</button>
         </div>
       </div>
     </>

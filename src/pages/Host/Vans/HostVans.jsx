@@ -1,22 +1,27 @@
 import { useEffect, useState } from "react"
 import "./HostVans.css"
 import { Link } from "react-router-dom";
-
-async function getData() {
-  const res = await fetch("/api/host/vans");
-  const data = await res.json();
-  return await data.vans;
-}
+import { getData } from "../../../utils/api/api";
+import Loading from "../../../components/Loading/Loading";
 
 function HostVans() {
   const [vans, setVans] = useState([])
+  const [loading, setLoading] = useState(false)
+
   useEffect(() => {
     const fetchData = async () => {
-      const vansData = await getData();
-      setVans(vansData);
+      setLoading(true)
+      const vansData = await getData("/api/host/vans");
+      setVans(vansData.vans);
+      setLoading(false)
     };
     fetchData();
   }, []);
+
+  if(loading) {
+    return <Loading />
+  }
+
   let vanCards=[]
   if(vans) {
     vanCards = vans.map((van) => {
@@ -45,7 +50,7 @@ function HostVans() {
       </>
     )
   } else {
-    return <h1>Loading...</h1>
+    return <Loading />
   }
 }
 

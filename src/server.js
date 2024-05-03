@@ -1,4 +1,4 @@
-import { createServer, Model } from "miragejs";
+import { createServer, Model, Response } from "miragejs";
 
 createServer({
   models: {
@@ -77,10 +77,11 @@ createServer({
   routes() {
     
     this.namespace = "api";
-    this.logging = false;
+    this.logging = true;
 
     this.get("/vans", (schema, request) => {
-      return schema.vans.all();
+      return new Response(400, { some: 'header' }, { errors: [ 'name cannot be blank'] });
+      // return schema.vans.all();
     });
 
     this.get("/vans/:id", (schema, request) => {

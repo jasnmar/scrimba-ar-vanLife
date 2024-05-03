@@ -51,3 +51,8 @@
   font-size: 1.25rem;
   font-weight: normal;
 }
+
+.vandetail--action {
+  background-color: #FF8C38;
+  width: 90%;
+}

@@ -2,23 +2,22 @@ import { useEffect, useState } from "react";
 import "./VanDetail.css";
 import { Link, useParams, useLocation } from "react-router-dom";
 import Badge from "../../../components/Badge/Badge";
-
-async function getData(id) {
-  const res = await fetch(`/api/vans/${id}`);
-  const data = await res.json();
-  return data;
-}
+import { getData } from "../../../utils/api/api";
+import Loading from "../../../components/Loading/Loading";
 
 function VanDetail() {
   const [vanData, setVanData] = useState();
+  const [loading, setLoading] = useState(false)
   const params = useParams();
   const location = useLocation()
   console.log('location: ', location)
 
   useEffect(() => {
     const fetchData = async () => {
-      const vanInfo = await getData(params.id);
+      setLoading(true)
+      const vanInfo = await getData(`/api/vans/${params.id}`);
       setVanData(vanInfo.vans);
+      setLoading(false)
     };
     fetchData();
   }, [params.id]);
@@ -30,6 +29,11 @@ function VanDetail() {
     oldSearch = oldUrl.get("type")
   }
   const backText = oldSearch ? oldSearch : "all"
+
+  if(loading) {
+    return <Loading />
+  }
+
 
   if (vanData) {
     return (
@@ -49,6 +53,7 @@ function VanDetail() {
           </p>
           <p className="vandetail--description">{vanData.description}</p>
         </div>
+        <button className="vandetail--action btn">Rent this van</button>
       </div>
     );
   }
