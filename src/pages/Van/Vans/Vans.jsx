@@ -1,55 +1,25 @@
 import "./Vans.css";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Van from "../../../components/Van/Van";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLoaderData } from "react-router-dom";
 import { getData } from "../../../utils/api/api";
-import Loading from "../../../components/Loading/Loading";
 
-
+async function loader() {
+  const vansData = await getData('/api/vans');
+  return vansData.vans
+}
 
 function Vans() {
   const [searchParams, setSearchParams] = useSearchParams()
 
-  const [vans, setVans] = useState()
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-
+  const vans = useLoaderData()
   const typeFilter = searchParams.get("type")
+  const filteredVans = (typeFilter) ? vans.filter((van) => van.type === typeFilter) : vans
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true)
-      try {
-        const vansData = await getData('/api/vans');
-        console.log('vansData: ', vansData)
-        setVans(vansData.vans);
-      } catch(err) {
-        setError(err)
-      } finally {
-        setLoading(false)
-      }
-      setLoading(false)
-    };
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <Loading />
-  }
-  if (error) {
-    return <h1 aria-live="assertive">Error: {error.message}</h1>
-  }
-
-  let filteredVans
-  if(vans) {
-    filteredVans = (typeFilter) ? vans.filter((van) => van.type === typeFilter) : vans
-  }
-  let vanList;
-  if (filteredVans) {
-    vanList = filteredVans.map((van) => {
+  const vanList = filteredVans.map((van) => {
       return <Van key={van.id} state={searchParams} data={van} />;
     });
-  }
+  
   // console.log('vans: ', vans)
   return (
     <>
@@ -77,3 +47,4 @@ function Vans() {
 }
 
 export default Vans;
+export { loader }

@@ -15,6 +15,8 @@ Learning Goals
 * Search / Query Params
 * Use Location (and state)
 * Router Provider
+* Loader
+* ErrorElement
 
 
 Installation: Prod:
