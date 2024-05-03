@@ -23,7 +23,7 @@ function HostVans() {
       return (
 
         <div key={van.id} >
-          <Link to={"/host/vans/"+ van.id}>
+          <Link to={van.id}>
             <div className="hostvans--minicard">
               <img className="hostvans--van-image" src={van.imageUrl}></img>
               <div className="hostvans--van-text">

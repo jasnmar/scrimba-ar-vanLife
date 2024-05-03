@@ -65,7 +65,7 @@ function Vans() {
               className={"van-type luxury" + (typeFilter=="luxury" && " selected")}>
                 Luxury
             </button>
-            <button onClick={()=>setSearchParams({})} className="van-type clear-filters">Clear Filter</button>
+            {typeFilter && <button onClick={()=>setSearchParams({})} className="van-type clear-filters">Clear Filter</button>}
           </div>
           <div className="vans--vanlist">{vanList}</div>
         </div>

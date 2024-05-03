@@ -6,7 +6,7 @@ function Van(props) {
   return (
     <>
       <div key={props.data.id} className="van--card">
-        <Link to={"/vans/" + props.data.id} aria-label={`View details for ${props.data.name}`}>
+        <Link to={props.data.id} aria-label={`View details for ${props.data.name}`}>
           <img className="van--card-image" src={props.data.imageUrl}></img>
           <div className="van--card-label">
             <div className="van--card-left">
