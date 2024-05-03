@@ -53,10 +53,19 @@ function Vans() {
         <div className="vans--vans-main">
           <h1>Explore our van options</h1>
           <div className="vans--filter-bar">
-            <Link to="?type=simple" className="van-type simple">Simple</Link>
-            <Link to="?type=rugged" className="van-type rugged">Rugged</Link>
-            <Link to="?type=luxury" className="van-type luxury">Luxury</Link>
-            <Link to="." className="van-type clear-filters">Clear Filter</Link>
+            <button onClick={()=>setSearchParams({type: "simple"})} 
+              className={"van-type simple" + (typeFilter=="simple" && " selected")}>
+                Simple
+            </button>
+            <button onClick={()=>setSearchParams({type: "rugged"})} 
+              className={"van-type rugged" + (typeFilter=="rugged" && " selected")}>
+                Rugged
+            </button>
+            <button onClick={()=>setSearchParams({type: "luxury"})} 
+              className={"van-type luxury" + (typeFilter=="luxury" && " selected")}>
+                Luxury
+            </button>
+            <button onClick={()=>setSearchParams({})} className="van-type clear-filters">Clear Filter</button>
           </div>
           <div className="vans--vanlist">{vanList}</div>
         </div>

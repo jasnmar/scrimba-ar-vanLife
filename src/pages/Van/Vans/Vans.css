@@ -69,3 +69,15 @@
 i[class*='van-type-'] {
   padding: 7px 14px;
 }
+
+.van-type.simple:hover, .van-type.simple.selected {
+  background-color: #E17654;
+}
+
+.van-type.rugged:hover, .van-type.rugged.selected {
+  background-color: #115E59;
+}
+
+.van-type.luxury:hover, .van-type.luxury.selected {
+  background-color: #161616;
+}
