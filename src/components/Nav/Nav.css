@@ -7,8 +7,10 @@
   height: 110px;
 }
 
-.nav--items > a {
-  text-decoration: none;
+.nav--items {
+ display: flex;
+ align-items: center;
+ gap: 20px;
 }
 
 .nav--home {

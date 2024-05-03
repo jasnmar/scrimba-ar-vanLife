@@ -1,5 +1,6 @@
 import "./Nav.css"
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
+import avatar from "../../assets/avatar.png"
 
 function Nav() {
   return (
@@ -10,6 +11,7 @@ function Nav() {
           <NavLink className={({isActive})=> isActive ? "activeLink nav--item" : "nav--item"} to="host">Host</NavLink>
           <NavLink className={({isActive})=> isActive ? "activeLink nav--item" : "nav--item"} to="about">About</NavLink>
           <NavLink className={({isActive})=> isActive ? "activeLink nav--item" : "nav--item"} to="vans">Vans</NavLink>
+          <Link to="login" className="login-link"> <img src={avatar} className="login-icon" /></Link>
         </div>
       </nav>
     </>
