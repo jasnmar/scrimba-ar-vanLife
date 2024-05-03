@@ -3,6 +3,17 @@ import { useState, useEffect } from "react";
 import Van from "../../../components/Van/Van";
 import Filter from "../../../components/Filter/Filter";
 import FilterContext from "../../../components/Filter/FilterContext";
+import { useSearchParams } from "react-router-dom";
+
+    /**
+     * Challenge: access the search params in this component
+     * 1. Using the hook from react-router-dom, set a variable
+     *    called `searchParams`
+     * 2. Save the value of the `type` parameter (from the
+     *    `searchParams` object) to a variable called `typeFilter`
+     * 3. Log the value of the `typeFilter` to the console
+     */
+
 
 const initialState = [
   { filterName: "simple", state: false },
@@ -17,12 +28,16 @@ async function getData() {
 }
 
 function Vans() {
+  const [searchParams, setSearchParams] = useSearchParams()
+
   const [vans, setVans] = useState();
   const [filterState, setFilterState] = useState(initialState);
   const [filteredVans, setFilteredVans] = useState();
   function resetFilterState() {
     setFilterState(initialState);
   }
+  const typeFilter = searchParams.get("type")
+  console.log('typeFilter: ', typeFilter)
 
   useEffect(() => {
     const fetchData = async () => {

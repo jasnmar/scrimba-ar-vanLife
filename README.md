@@ -10,6 +10,9 @@ Learning Goals
 * Route Params
 * Nested Routes
 * Layout Routes
+* Outlets
+* Outlet Context
+* Search / Query Params
 
 
 Installation: Prod:
