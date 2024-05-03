@@ -4,14 +4,8 @@ import Van from "../../../components/Van/Van";
 import Filter from "../../../components/Filter/Filter";
 import { useSearchParams } from "react-router-dom";
 
-    /**
-     * Challenge: access the search params in this component
-     * 1. Using the hook from react-router-dom, set a variable
-     *    called `searchParams`
-     * 2. Save the value of the `type` parameter (from the
-     *    `searchParams` object) to a variable called `typeFilter`
-     * 3. Log the value of the `typeFilter` to the console
-     */
+
+
 
 
 async function getData() {
