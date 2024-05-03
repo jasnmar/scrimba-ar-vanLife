@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 import "./VanDetail.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import Badge from "../../../components/Badge/Badge";
 
 async function getData(id) {
   const res = await fetch(`/api/vans/${id}`);
   const data = await res.json();
-  console.log("data: ", data);
   return data;
 }
 
 function VanDetail() {
   const [vanData, setVanData] = useState();
   const params = useParams();
-  console.log("params: ", params);
+  const location = useLocation()
+  console.log('location: ', location)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,12 +23,19 @@ function VanDetail() {
     fetchData();
   }, [params.id]);
 
-  console.log("vanData: ", vanData);
+  const backPath = location.state?.search ? "..?" + location.state.search : ".."
+  const oldUrl = new URLSearchParams (location.state?.search)
+  let oldSearch = ""
+  if(oldUrl) {
+    oldSearch = oldUrl.get("type")
+  }
+  const backText = oldSearch ? oldSearch : "all"
+
   if (vanData) {
     return (
       <div className="vandetail--main">
         <div className="vandetail--link">
-          <Link to=".." relative="path"> &larr; Back to all vans</Link>
+          <Link to={backPath} relative="path"> &larr; Back to {backText} vans</Link>
         </div>
         <img className="vandetail--van-image" src={vanData.imageUrl}></img>
         <div className="vandetail--bottom-text">

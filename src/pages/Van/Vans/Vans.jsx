@@ -27,7 +27,6 @@ function Vans() {
   const [vans, setVans] = useState();
 
   const typeFilter = searchParams.get("type")
-  console.log('typeFilter: ', typeFilter)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,10 +43,10 @@ function Vans() {
   let vanList;
   if (filteredVans) {
     vanList = filteredVans.map((van) => {
-      return <Van key={van.id} data={van} />;
+      return <Van key={van.id} state={searchParams} data={van} />;
     });
   }
-  console.log('vans: ', vans)
+  // console.log('vans: ', vans)
   return (
     <>
         <div className="vans--vans-main">

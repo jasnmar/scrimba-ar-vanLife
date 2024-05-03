@@ -13,6 +13,7 @@ Learning Goals
 * Outlets
 * Outlet Context
 * Search / Query Params
+* Use Location (and state)
 
 
 Installation: Prod:

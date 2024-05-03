@@ -38,6 +38,7 @@ function App() {
               </Route>
               <Route path="income" element={<Income />} />
             </Route>
+            <Route path="*" element={<h1>Page Not Found</h1>}/>
           </Route>
         </Routes>
       </BrowserRouter>

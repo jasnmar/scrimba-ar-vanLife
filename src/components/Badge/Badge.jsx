@@ -21,7 +21,6 @@ function Badge({ label, styled, onClick = () => {} }) {
   
   function doTheThing() {
     onClick(label)
-    console.log('running')
   }
 
   return (
