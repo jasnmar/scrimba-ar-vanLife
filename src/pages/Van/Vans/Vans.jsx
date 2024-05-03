@@ -5,18 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { getData } from "../../../utils/api/api";
 import Loading from "../../../components/Loading/Loading";
 
-    /**
-     * Challenge: add links to filter the vans by type. Use a hard-coded
-     * `to` string like we just practiced. The types are "simple", 
-     * "luxury", and "rugged".
-     * 
-     * For now, give the Links a className of `van-type simple` (and
-     * manually replace "simple" with "luxury" and "rugged" for 
-     * the Links that filter by those types.)
-     * 
-     * Include a Link to clear the filters. Its className should be
-     * `van-type clear-filters`
-     */
+
 
 function Vans() {
   const [searchParams, setSearchParams] = useSearchParams()

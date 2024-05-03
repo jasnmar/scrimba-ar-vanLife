@@ -14,6 +14,7 @@ Learning Goals
 * Outlet Context
 * Search / Query Params
 * Use Location (and state)
+* Router Provider
 
 
 Installation: Prod:
