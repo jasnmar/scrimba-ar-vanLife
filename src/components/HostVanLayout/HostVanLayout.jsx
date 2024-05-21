@@ -2,25 +2,45 @@ import { useEffect, useState } from "react"
 import "./HostVanLayout.css"
 import { useParams, NavLink, Outlet, Link } from "react-router-dom"
 import Badge from "../Badge/Badge"
+import { getData } from "../../utils/api/api"
+import Loading from "../Loading/Loading"
 
-async function getData(id) {
-  const res = await fetch('/api/host/vans/'+id)
-  const data = await res.json()
-  return data
-}
+// async function getData(id) {
+//   const res = await fetch('/api/host/vans/'+id)
+//   const data = await res.json()
+//   return data
+// }
 
 
 function HostVanLayout() {
   const [van, setVan] = useState()
   const params = useParams()
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
+    
     const fetchData = async () => {
-      const vanData = await getData(params.id)
-      setVan(vanData.vans[0])
+      setLoading(true)
+      try {
+        const vanData = await getData('/api/host/vans/'+params.id)
+        setVan(vanData.vans[0])
+      } catch(err){
+        setError(err)
+      } finally {
+        setLoading(false)
+      }
     }
     fetchData()
   }, [params])
+
+  if(loading) {
+    return <Loading />
+  }
+  if (error) {
+    return <h1>There was an error: {error.message}</h1>
+  }
+
   if(van) {
     return (
       <>

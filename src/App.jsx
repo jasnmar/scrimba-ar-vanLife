@@ -33,17 +33,17 @@ const router = createBrowserRouter(
       <Route path="vans/:id" element={<VanDetail />} />
       <Route path="login" element={<Login />} />
       <Route element={<HostAuth />}>
-      <Route path="host" element={<HostLayout />}>
-        <Route index element={<Dashboard />} />
-        <Route path="reviews" element={<Reviews />} />
-        <Route path="vans" element={<HostVans />} />
-        <Route path="vans/:id" element={<HostVanLayout />}>
-          <Route index element={<HostVanDetails />} />
-          <Route path="pricing" element={<HostVansPricing />} />
-          <Route path="photos" element={<HostVansPhotos />} />
+        <Route path="host" element={<HostLayout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="reviews" element={<Reviews />} />
+          <Route path="vans" element={<HostVans />} />
+          <Route path="vans/:id" element={<HostVanLayout />}>
+            <Route index element={<HostVanDetails />} />
+            <Route path="pricing" element={<HostVansPricing />} />
+            <Route path="photos" element={<HostVansPhotos />} />
+          </Route>
+          <Route path="income" element={<Income />} />
         </Route>
-        <Route path="income" element={<Income />} />
-      </Route>
       </Route>
       <Route path="*" element={<NotFound />} />
     </Route>

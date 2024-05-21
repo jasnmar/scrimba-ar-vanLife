@@ -8,6 +8,7 @@ import Loading from "../../../components/Loading/Loading";
 function VanDetail() {
   const [vanData, setVanData] = useState();
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
   const params = useParams();
   const location = useLocation()
   console.log('location: ', location)
@@ -15,9 +16,14 @@ function VanDetail() {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
-      const vanInfo = await getData(`/api/vans/${params.id}`);
-      setVanData(vanInfo.vans);
-      setLoading(false)
+      try {
+        const vanInfo = await getData(`/api/vans/${params.id}`);
+        setVanData(vanInfo.vans);
+      } catch(err) {
+        setError(err)
+      } finally {
+        setLoading(false)
+      }
     };
     fetchData();
   }, [params.id]);
@@ -34,7 +40,10 @@ function VanDetail() {
     return <Loading />
   }
 
-
+  if (error) {
+    return <h1>There was an error: {error.message}</h1>
+  }
+  
   if (vanData) {
     return (
       <div className="vandetail--main">

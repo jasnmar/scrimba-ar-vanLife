@@ -7,19 +7,28 @@ import Loading from "../../../components/Loading/Loading";
 function HostVans() {
   const [vans, setVans] = useState([])
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
-      const vansData = await getData("/api/host/vans");
-      setVans(vansData.vans);
-      setLoading(false)
+      try {
+        const vansData = await getData("/api/host/vans");
+        setVans(vansData.vans);
+      } catch(err) {
+        setError(err)
+      } finally {
+        setLoading(false)
+      }
     };
     fetchData();
   }, []);
 
   if(loading) {
     return <Loading />
+  }
+  if (error) {
+    return <h1>There was an error: {error.message}</h1>
   }
 
   let vanCards=[]
