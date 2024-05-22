@@ -1,12 +1,14 @@
 import "./Vans.css";
-import { useState} from "react";
+//import { useState} from "react";
 import Van from "../../../components/Van/Van";
 import { useSearchParams, useLoaderData } from "react-router-dom";
-import { getData } from "../../../utils/api/api";
+import { getVans } from "../../../utils/api/api";
 
 async function loader() {
-  const vansData = await getData('/api/vans');
-  return vansData.vans
+  //const vansData = await getData('/api/vans');
+  const vansData = await getVans();
+  console.log('vansData: ', vansData)
+  return vansData
 }
 
 function Vans() {

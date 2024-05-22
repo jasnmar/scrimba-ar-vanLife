@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import "./HostVans.css"
 import { Link } from "react-router-dom";
-import { getData } from "../../../utils/api/api";
+import { getVans } from "../../../utils/api/api";
 import Loading from "../../../components/Loading/Loading";
 
 function HostVans() {
@@ -13,8 +13,8 @@ function HostVans() {
     const fetchData = async () => {
       setLoading(true)
       try {
-        const vansData = await getData("/api/host/vans");
-        setVans(vansData.vans);
+        const vansData = await getVans("123");
+        setVans(vansData);
       } catch(err) {
         setError(err)
       } finally {

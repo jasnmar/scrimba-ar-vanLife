@@ -81,6 +81,7 @@ createServer({
     this.namespace = "api";
     this.logging = false;
 
+    this.passthrough("https://firestore.googleapis.com/**")
     this.get("/vans", (schema, request) => {
       // return new Response(400, { some: 'header' }, { errors: [ 'name cannot be blank'] });
       return schema.vans.all();

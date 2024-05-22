@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import "./HostVanLayout.css"
 import { useParams, NavLink, Outlet, Link } from "react-router-dom"
 import Badge from "../Badge/Badge"
-import { getData } from "../../utils/api/api"
+import { getVans } from "../../utils/api/api"
 import Loading from "../Loading/Loading"
 
 // async function getData(id) {
@@ -23,8 +23,8 @@ function HostVanLayout() {
     const fetchData = async () => {
       setLoading(true)
       try {
-        const vanData = await getData('/api/host/vans/'+params.id)
-        setVan(vanData.vans[0])
+        const vanData = await getVans("123");
+        setVan(vanData[params.id])
       } catch(err){
         setError(err)
       } finally {

@@ -15,12 +15,11 @@ function Login() {
 
   const message = location.state?.message;
   let retURL
-  if(location.state.returnURL) {
+  if(location.state?.returnURL) {
     retURL = location.state.returnURL
   } else {
     retURL = "/host"
   }
-
 
   function handleSubmit(event) {
     event.preventDefault();

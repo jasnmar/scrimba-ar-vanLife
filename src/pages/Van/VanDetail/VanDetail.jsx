@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./VanDetail.css";
 import { Link, useParams, useLocation } from "react-router-dom";
 import Badge from "../../../components/Badge/Badge";
-import { getData } from "../../../utils/api/api";
+import { getVan } from "../../../utils/api/api";
 import Loading from "../../../components/Loading/Loading";
 
 function VanDetail() {
@@ -11,14 +11,15 @@ function VanDetail() {
   const [error, setError] = useState(null)
   const params = useParams();
   const location = useLocation()
-  console.log('location: ', location)
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
       try {
-        const vanInfo = await getData(`/api/vans/${params.id}`);
-        setVanData(vanInfo.vans);
+        //const vanInfo = await getData(`/api/vans/${params.id}`);
+        const vanInfo = await getVan(params.id)
+        setVanData(vanInfo);
+        
       } catch(err) {
         setError(err)
       } finally {
@@ -43,7 +44,7 @@ function VanDetail() {
   if (error) {
     return <h1>There was an error: {error.message}</h1>
   }
-  
+
   if (vanData) {
     return (
       <div className="vandetail--main">
