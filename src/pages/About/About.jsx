@@ -1,7 +1,13 @@
 import "./About.css";
 import heroImg from "../../assets/about-header.png";
+import { useNavigate } from "react-router-dom";
 
 function About() {
+  const navigate = useNavigate()
+  function gotoVans() {
+    navigate("/vans")
+  }
+
   return (
     <>
       <img className="about--hero-img" src={heroImg}></img>
@@ -21,7 +27,7 @@ function About() {
             Your destination is waiting.<br></br>
             Your van is ready.
           </h2>
-          <button className="about--action-btn btn">Explore our vans</button>
+          <button onClick={gotoVans} className="about--action-btn btn">Explore our vans</button>
         </div>
       </div>
     </>

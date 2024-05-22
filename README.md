@@ -17,6 +17,7 @@ Learning Goals
 * Router Provider
 * Loader
 * ErrorElement
+* Protected Routes
 
 
 Installation: Prod:

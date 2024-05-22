@@ -17,15 +17,24 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
 
 const vansCollectionRef = collection(db, "vans")
+//const userCollectionRef = collection(db, "users")
 
 async function getVans(hostId="") {
-  let q
+  let q //Query if there is a hostId
   let snapshot
   if(hostId) {
     q = query(vansCollectionRef, where("hostId", "==", hostId) )
+  } 
+  if(!q) {
+    q = vansCollectionRef
+  }
+  try {
     snapshot = await getDocs(q)
-  } else {
-    snapshot =  await getDocs(vansCollectionRef)
+  } catch(err) {
+    throw {
+      message: "Error getting van data",
+      errorText: err
+    }
   }
   const vans = snapshot.docs.map(doc => ({
     ...doc.data(),
@@ -36,37 +45,20 @@ async function getVans(hostId="") {
 
 async function getVan(id) {
   const docRef = doc(db, "vans", id)
-  const snapshot = await getDoc(docRef)
+  let snapshot
+  try {
+    snapshot = await getDoc(docRef)
+  } catch(err) {
+    throw {
+      message: "Error get data for van " + id,
+      errorText: err
+    }
+  }
   return {
     ...snapshot.data(),
     id: snapshot.id
   } 
 }
-
-async function getHostVans() {
-  const q = query(vansCollectionRef, where("hostId", "==", "123") )
-  const snapshot = await getDocs(q)
-  const vans = snapshot.docs.map(doc => ({
-    ...doc.data(),
-    id: doc.id
-  }))
-  return vans
-
-}
-
-
-// async function getData(url) {
-//   const res = await fetch(url);
-//   if (!res.ok) {
-//     throw {
-//       message: "Failed to fetch data",
-//       statusText: res.statusText,
-//       status: res.status
-//     }
-//   }
-//   const data = await res.json();
-//   return await data;
-// }
 
 async function loginUser(creds) {
   const res = await fetch("/api/login", {method: "post", body: JSON.stringify(creds)})
@@ -82,4 +74,4 @@ async function loginUser(creds) {
 }
 
 
-export { loginUser, getVans, getVan, getHostVans }
+export { loginUser, getVans, getVan }

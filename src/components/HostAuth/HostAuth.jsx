@@ -4,9 +4,10 @@ function HostAuth() {
   const auth = localStorage.getItem("loggedin");
 
   const location = useLocation()
-  //console.log('location: ', location)
-
-  return auth ? <Outlet /> : <Navigate to="/login" replace state={{message: "You must log in first", returnURL: location.pathname}} />
+  const notLoggedIn = {message: "You must log in first", returnURL: location.pathname}
+  return auth ? 
+    <Outlet /> : 
+    <Navigate to="/login" replace state={notLoggedIn} />
 }
 
 export default HostAuth

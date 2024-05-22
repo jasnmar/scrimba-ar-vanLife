@@ -1,6 +1,12 @@
 import "./Home.css";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate()
+  function gotoVans() {
+    navigate("/vans")
+  }
+
   return (
     <>
       <div className="home">
@@ -10,7 +16,7 @@ function Home() {
             Add adventure to your life by joining the #vanlife movement. Rent
             the perfect van to make your perfect road trip.
           </p>
-          <button className="home--main-btn btn">Find your van</button>
+          <button onClick={gotoVans} className="home--main-btn btn">Find your van</button>
         </div>
       </div>
     </>

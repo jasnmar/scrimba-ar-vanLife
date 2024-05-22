@@ -2,14 +2,6 @@ import "./Vans.css";
 //import { useState} from "react";
 import Van from "../../../components/Van/Van";
 import { useSearchParams, useLoaderData } from "react-router-dom";
-import { getVans } from "../../../utils/api/api";
-
-async function loader() {
-  //const vansData = await getData('/api/vans');
-  const vansData = await getVans();
-  console.log('vansData: ', vansData)
-  return vansData
-}
 
 function Vans() {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -22,22 +14,21 @@ function Vans() {
       return <Van key={van.id} state={searchParams} data={van} />;
     });
   
-  // console.log('vans: ', vans)
   return (
     <>
       <div className="vans--vans-main">
         <h1>Explore our van options</h1>
         <div className="vans--filter-bar">
           <button onClick={()=>setSearchParams({type: "simple"})} 
-            className={"van-type simple" + (typeFilter=="simple" && " selected")}>
+            className={"van-type simple" + (typeFilter=="simple" ? " selected": "")}>
               Simple
           </button>
           <button onClick={()=>setSearchParams({type: "rugged"})} 
-            className={"van-type rugged" + (typeFilter=="rugged" && " selected")}>
+            className={"van-type rugged " + (typeFilter=="rugged" ? " selected": "")}>
               Rugged
           </button>
           <button onClick={()=>setSearchParams({type: "luxury"})} 
-            className={"van-type luxury" + (typeFilter=="luxury" && " selected")}>
+            className={"van-type luxury " + (typeFilter=="luxury" ? " selected": "")}>
               Luxury
           </button>
           {typeFilter && <button onClick={()=>setSearchParams({})} className="van-type clear-filters">Clear Filter</button>}
@@ -49,4 +40,4 @@ function Vans() {
 }
 
 export default Vans;
-export { loader }
+
