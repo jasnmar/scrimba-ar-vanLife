@@ -18,6 +18,8 @@ Learning Goals
 * Loader
 * ErrorElement
 * Protected Routes
+* UseLoaderData, UseActionData
+* UseNavigation
 
 
 Installation: Prod:

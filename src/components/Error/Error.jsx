@@ -7,7 +7,7 @@ function Error() {
   return (
     <>
       <h1>We are very sorry, something has gone awry</h1>
-      <h1>{err.message}</h1>
+      <p>{err.message}</p>
     </>
   )
 }

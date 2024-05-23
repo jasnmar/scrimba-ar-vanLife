@@ -1,15 +1,12 @@
-import { useState } from "react";
 import "./Login.css";
-import { useLocation, useNavigate, Form } from "react-router-dom";
+import { useLocation, Form, useActionData, useNavigation } from "react-router-dom";
 
 
 function Login() {
   
-  const [status, setStatus] = useState("idle");
-  const [error, setError] = useState(null);
   const location = useLocation();
-
-
+  const error = useActionData()
+  const navigation = useNavigation()
   const message = location.state?.message;
 
   return (
@@ -31,10 +28,10 @@ function Login() {
           placeholder="password"
         ></input>
         <button
-          disabled={status === "submitting" ? true : false}
+          disabled={navigation.state === "submitting" ? true : false}
           className="login--signin btn"
         >
-          {status === "submitting" ? "Signing In" : "Sign in"}
+          {navigation.state === "submitting" ? "Signing In" : "Sign in"}
         </button>
       </Form>
       <p className="login--create-intro">

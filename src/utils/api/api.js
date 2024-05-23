@@ -76,12 +76,19 @@ async function loginUser(creds) {
     ...doc.data(),
     id: doc.id
   }))
-
-  if(creds.password === user[0].password) {
-    return user[0]
+  if(user.length>0) {
+    if(creds.password === user[0].password) {
+      return user[0]
+    } else {
+      throw {
+        message: "Invalid Login Data",
+      }
+    }
+  } else {
+    throw {
+      message: "Invalid Login Data"
+    }
   }
-  return null
-
 }
 
 export { loginUser, getVans, getVan }
