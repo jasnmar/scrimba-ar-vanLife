@@ -1,8 +1,10 @@
 import { getVans } from "../../../utils/api/api";
+import requireAuth from "../../../utils/utils";
 
 async function HostVansLoader() {
-  const vansData = await getVans("123")
-  return vansData
+  await requireAuth();
+  const vansData = await getVans("123");
+  return vansData;
 }
 
-export default HostVansLoader
+export default HostVansLoader;

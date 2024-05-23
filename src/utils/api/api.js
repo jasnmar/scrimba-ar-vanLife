@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
 
 const vansCollectionRef = collection(db, "vans")
-//const userCollectionRef = collection(db, "users")
+const userCollectionRef = collection(db, "users")
 
 async function getVans(hostId="") {
   let q //Query if there is a hostId
@@ -60,18 +60,28 @@ async function getVan(id) {
   } 
 }
 
+
 async function loginUser(creds) {
-  const res = await fetch("/api/login", {method: "post", body: JSON.stringify(creds)})
-  const data = await res.json()
-  if (!res.ok) {
+  const q = query(userCollectionRef, where("email", "==", creds.email) )
+  let snapshot
+  try {
+    snapshot = await getDocs(q)
+  } catch(err) {
     throw {
-      message: data.message,
-      statusText: res.statusText,
-      status: res.status
+      message: "Error getting user data",
+      errorText: err
     }
   }
-  return data
-}
+  const user = snapshot.docs.map(doc => ({
+    ...doc.data(),
+    id: doc.id
+  }))
 
+  if(creds.password === user[0].password) {
+    return user[0]
+  }
+  return null
+
+}
 
 export { loginUser, getVans, getVan }
