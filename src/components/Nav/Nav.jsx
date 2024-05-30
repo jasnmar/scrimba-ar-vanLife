@@ -3,9 +3,9 @@ import { NavLink, Link } from "react-router-dom"
 import avatar from "../../assets/avatar.png"
 
 function Nav() {
-  function logOut() {
-    localStorage.removeItem("loggedin")
-  }
+  // function logOut() {
+  //   localStorage.removeItem("loggedin")
+  // }
   return (
     <>
       <nav className="nav--main">
