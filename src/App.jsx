@@ -27,7 +27,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import Login from "./pages/Login/Login";
 import LoginAction from "./pages/Login/LoginAction";
 import vanDetailLoader from "./pages/Van/VanDetail/VanDetailLoader";
-import requireAuth from "./utils/utils";
+//import requireAuth from "./utils/utils";
 
 
 const router = createBrowserRouter(
@@ -55,9 +55,9 @@ const router = createBrowserRouter(
         <Route
           path="reviews"
           element={<Reviews />}
-          loader={async ({request}) => {
-            return await requireAuth(request);
-          }}
+          // loader={async ({request}) => {
+          //   return await requireAuth(request);
+          // }}
         />
         <Route 
           path="vans" 
@@ -72,31 +72,31 @@ const router = createBrowserRouter(
           <Route
             index
             element={<HostVanDetails />}
-            loader={async ({request}) => {
-              return await requireAuth(request);
-            }}
+            // loader={async ({request}) => {
+            //   return await requireAuth(request);
+            // }}
           />
           <Route
             path="pricing"
             element={<HostVansPricing />}
-            loader={async ({request}) => {
-              return await requireAuth(request);
-            }}
+            // loader={async ({request}) => {
+            //   return await requireAuth(request);
+            // }}
           />
           <Route
             path="photos"
             element={<HostVansPhotos />}
-            loader={async ({request}) => {
-              return await requireAuth(request);
-            }}
+            // loader={async ({request}) => {
+            //   return await requireAuth(request);
+            // }}
           />
         </Route>
         <Route
           path="income"
           element={<Income />}
-          loader={async ({request}) => {
-            return await requireAuth(request);
-          }}
+          // loader={async ({request}) => {
+          //   return await requireAuth(request);
+          // }}
         />
       </Route>
       <Route path="*" element={<NotFound />} />
