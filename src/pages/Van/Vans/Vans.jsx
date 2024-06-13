@@ -1,21 +1,28 @@
 import "./Vans.css";
 //import { useState} from "react";
 import Van from "../../../components/Van/Van";
-import { useSearchParams, useLoaderData } from "react-router-dom";
+import { useSearchParams, useLoaderData, Await } from "react-router-dom";
 
 function Vans() {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const vans = useLoaderData()
   const typeFilter = searchParams.get("type")
-  const filteredVans = (typeFilter) ? vans.filter((van) => van.type === typeFilter) : vans
-
-  const vanList = filteredVans.map((van) => {
-      return <Van key={van.id} state={searchParams} data={van} />;
-    });
+  
   
   return (
     <>
+    <Await resolve={vans.vansData}>
+      {(loadedVans) => {
+        const filteredVans = (typeFilter) ? loadedVans.filter((van) => van.type === typeFilter) : loadedVans
+        const vanList = filteredVans.map((van) => {
+          return <Van key={van.id} state={searchParams} data={van} />;
+        });
+        return (
+          <>
+ 
+
+    
       <div className="vans--vans-main">
         <h1>Explore our van options</h1>
         <div className="vans--filter-bar">
@@ -35,6 +42,10 @@ function Vans() {
         </div>
         <div className="vans--vanlist">{vanList}</div>
       </div>
+      </>
+        )
+      }}
+      </Await>
     </>
   );
 }
