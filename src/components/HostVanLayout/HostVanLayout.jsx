@@ -1,9 +1,29 @@
 import "./HostVanLayout.css";
-import { NavLink, Outlet, Link, useLoaderData } from "react-router-dom";
+import { NavLink, Outlet, Link, useLoaderData, Await } from "react-router-dom";
 import Badge from "../Badge/Badge";
+import { Suspense } from "react";
 
 function HostVanLayout() {
-  const van = useLoaderData();
+  const vanPromise = useLoaderData();
+  function vanPage(van) {
+    return (
+      <>
+        <img className="hostvanlayout--van-image" src={van.imageUrl}></img>
+          <div className="hostvanlayout--van-data">
+            <Badge styled={true} label={van.type} />
+            <p className="hostvanlayout--van-title">{van.name}</p>
+            <p className="hostvanlayout--van-price">
+              ${van.price}
+              <span className="hostvanlayout--van-price-day">/day</span>
+            </p>
+          </div>
+      </>
+    )
+  }
+
+  function vanOutlet(van) {
+    return <Outlet context={[van]} />
+  }
 
   return (
     <>
@@ -15,15 +35,12 @@ function HostVanLayout() {
       </div>
       <div className="hostvanlayout--page">
         <div className="hostvanlayout--card">
-          <img className="hostvanlayout--van-image" src={van.imageUrl}></img>
-          <div className="hostvanlayout--van-data">
-            <Badge styled={true} label={van.type} />
-            <p className="hostvanlayout--van-title">{van.name}</p>
-            <p className="hostvanlayout--van-price">
-              ${van.price}
-              <span className="hostvanlayout--van-price-day">/day</span>
-            </p>
-          </div>
+          <Suspense fallback={<h2>Loading...</h2>}>
+            <Await resolve={vanPromise.vanData}>
+              {vanPage}
+            </Await>
+          </Suspense>
+          
         </div>
         <nav className="host--nav-main">
           <div className="host--nav-items">
@@ -54,7 +71,12 @@ function HostVanLayout() {
             </NavLink>
           </div>
         </nav>
-        <Outlet context={[van]} />
+        <Suspense fallback={<h2>Loading...</h2>}>
+            <Await resolve={vanPromise.vanData}>
+              {vanOutlet}
+            </Await>
+          </Suspense>
+        
       </div>
     </>
   );

@@ -27,6 +27,7 @@ import NotFound from "./pages/NotFound/NotFound";
 import Login from "./pages/Login/Login";
 import LoginAction from "./pages/Login/LoginAction";
 import vanDetailLoader from "./pages/Van/VanDetail/VanDetailLoader";
+import dashboardLoader from "./pages/Host/Dashboard/DashboardLoader";
 //import requireAuth from "./utils/utils";
 
 
@@ -48,6 +49,7 @@ const router = createBrowserRouter(
         <Route
           index
           element={<Dashboard />}
+          loader={dashboardLoader}
           // loader={async ({request}) => {
           //   return await requireAuth(request);
           // }}
