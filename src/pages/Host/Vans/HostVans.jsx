@@ -4,7 +4,7 @@ import { Link, useLoaderData, Await } from "react-router-dom";
 
 
 function HostVans() {
-  const vans = useLoaderData();
+  const vansPromise = useLoaderData();
 
   function listVans(vans){
     let vanCards = [];
@@ -30,7 +30,7 @@ function HostVans() {
     <>
       <h1 className="hostvans--title">Your listed Vans</h1>
       <Suspense fallback={<h2>Loading Vans...</h2>}>
-        <Await resolve={vans}>
+        <Await resolve={vansPromise.vansData}>
           {listVans}  
         </Await>
       </Suspense>
